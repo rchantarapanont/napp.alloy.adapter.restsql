@@ -199,6 +199,9 @@ function Sync(method, model, opts) {
 	var params = _.extend({}, opts);
 	params.type = type;
 
+	//If params.localOnly is set to false it should become undefined
+	if(!params.localOnly || (params.localOnly === false)) {delete params.localOnly;}
+	
 	//set default headers
 	params.headers = params.headers || {};
 	
